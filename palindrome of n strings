@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <string.h>
+void main()
+{
+    int i, j, len[30];
+
+    char str[30][30];
+    int N;
+    printf("enter number of strings\n");
+    scanf("%d", &N);
+    printf("enter the string\n");
+    for (i = 0; i < N; i++)
+    {
+        /*fgets(str[i],30,stdin);*/
+        scanf("%s", str[i]);
+    }
+    for (i = 0; i < N; i++)
+    {
+        len[i] = strlen(str[i]);
+    }
+
+    for (i = 0; i < N; i++)
+    {
+        printf("%s\n", str[i]);
+    }
+    for (i = 0; i < N; i++)
+    {
+        printf("%d\n", len[i]);
+    }
+
+    for (i = 0; i < N; i++)
+    {
+        int flag = 0;
+        for (j = 0; j < len[i] / 2; j++)
+        {
+            if (str[i][j] == str[i][len[i] - j - 1])
+            {
+                flag = 1;
+            }
+        }
+
+        if (flag == 1)
+        {
+            printf("%s is palindrome\n", str[i]);
+        }
+        else
+        {
+            printf("%s is not palindrome\n", str[i]);
+        }
+    }
+}
